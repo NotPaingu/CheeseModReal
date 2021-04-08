@@ -1,6 +1,7 @@
 package com.notpaingu.cheesemodnp.events;
 
 import com.notpaingu.cheesemodnp.Main;
+import com.notpaingu.cheesemodnp.items.CheeseHoneyBottle;
 import com.notpaingu.cheesemodnp.lists.FoodList;
 import com.notpaingu.cheesemodnp.lists.ItemList;
 import com.notpaingu.cheesemodnp.lists.PotionList;
@@ -10,7 +11,11 @@ import net.minecraft.potion.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.Logger;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -18,6 +23,14 @@ public class RegistryEvents {
     public static final Logger LOGGER = Main.LOGGER;
     public static final String MOD_ID = Main.MOD_ID;
     public static final ItemGroup CHEESE = Main.CHEESE;
+
+    public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "cheesemodnp");
+
+    public static void init() {
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    }
+
+    public static final RegistryObject<CheeseHoneyBottle> CHEESE_HONEY_BOTTLE = ITEMS.register("cheese_honey_bottle", CheeseHoneyBottle::new);
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
@@ -60,6 +73,7 @@ public class RegistryEvents {
                 ItemList.cheese_steak = new Item(new Item.Properties().group(CHEESE).food(FoodList.CHEESE_COOKED_PORKCHOP)).setRegistryName(location("cheese_steak")),
                 ItemList.cheese_cooked_porkchop = new Item(new Item.Properties().group(CHEESE).food(FoodList.CHEESE_COOKED_PORKCHOP)).setRegistryName(location("cheese_cooked_porkchop")),
                 ItemList.cheese_golden_carrot = new Item(new Item.Properties().group(CHEESE).food(FoodList.CHEESE_GOLDEN_CARROT)).setRegistryName(location("cheese_golden_carrot"))
+
 
 
         );

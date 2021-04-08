@@ -1,8 +1,12 @@
 package com.notpaingu.cheesemodnp.lists;
 
 import net.minecraft.item.Food;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 
 public class FoodList {
 
@@ -182,4 +186,13 @@ public class FoodList {
                         .effect(new EffectInstance(Effects.SLOWNESS, 100), 1f)
                         .build()
         );
+        public static final Food CHEESE_HONEY_BOTTLE = (
+                new Food.Builder()
+                        .hunger(6)
+                        .saturation(1.2f)
+                        .effect(new EffectInstance(Effects.HUNGER, 100), 1f)
+                        .effect(new EffectInstance(Effects.SLOWNESS, 100), 1f)
+                        .build()
+        );
+
 }
