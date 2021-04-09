@@ -2,9 +2,9 @@ package com.notpaingu.cheesemodnp;
 
 import com.notpaingu.cheesemodnp.lists.ItemList;
 import com.notpaingu.cheesemodnp.lists.PotionList;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,8 +22,15 @@ public class Main {
     public Main() {
         instance = this;
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ItemList.ITEMS.register(modEventBus);
+        PotionList.POTIONS.register(modEventBus);
+
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::clientSetup);
+
+        ItemList.ITEMS.register(modEventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -42,7 +49,7 @@ public class Main {
 
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ItemList.cheese);
+            return new ItemStack(ItemList.CHEESE.get());
         }
     }
 

@@ -17,6 +17,17 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 public class CheeseHoneyBottle extends Item {
+    public CheeseHoneyBottle() {
+        super(new Item.Properties().group(Main.CHEESE).food(
+                new Food.Builder()
+                        .hunger(6)
+                        .saturation(1.2f)
+                        .effect(new EffectInstance(Effects.SLOWNESS, 100), 1f)
+                        .effect(new EffectInstance(Effects.HUNGER, 100), 1f)
+                        .build()
+        ));
+    }
+
     @Override
     public SoundEvent getDrinkSound() {
         return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
@@ -58,19 +69,5 @@ public class CheeseHoneyBottle extends Item {
         }
     }
 
-    public CheeseHoneyBottle() {
-        super(new Item.Properties()
-                .group(Main.CHEESE)
-                .food(new Food.Builder()
-                        .hunger(6)
-                        .saturation(1.2f)
-                        .effect(new EffectInstance(Effects.HUNGER, 100), 1f)
-                        .effect(new EffectInstance(Effects.SLOWNESS, 100), 1f)
-                        .build())
 
-
-
-
-        );
-    }
 }
