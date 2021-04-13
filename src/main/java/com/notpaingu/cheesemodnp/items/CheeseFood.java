@@ -3,7 +3,6 @@ package com.notpaingu.cheesemodnp.items;
 import com.notpaingu.cheesemodnp.Main;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 
