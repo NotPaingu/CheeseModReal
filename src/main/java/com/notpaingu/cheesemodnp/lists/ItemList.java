@@ -15,7 +15,7 @@ public class ItemList {
     public static final RegistryObject<CheeseFood> CHEESE_BEETROOT = ITEMS.register("cheese_beetroot", () -> new CheeseFood(1, 1.2f));
     public static final RegistryObject<CheeseFood> CHEESE_APPLE = ITEMS.register("cheese_apple", () -> new CheeseFood(4, 2.4f));
     public static final RegistryObject<CheeseFood> CHEESE_BAKED_POTATO = ITEMS.register("cheese_baked_potato", () -> new CheeseFood(5, 6.0f));
-    public static final RegistryObject<CheesePufferfish> PUFFERFISH = ITEMS.register("cheese_pufferfish", CheesePufferfish::new);
+    public static final RegistryObject<CheesePufferfish> CHEESE_PUFFERFISH = ITEMS.register("cheese_pufferfish", CheesePufferfish::new);
     public static final RegistryObject<CheeseFood> CHEESE_TROPICAL_FISH = ITEMS.register("cheese_tropical_fish", () -> new CheeseFood(1, 0.2f));
     public static final RegistryObject<CheeseFood> CHEESE_COOKIE = ITEMS.register("cheese_cookie", () -> new CheeseFood(2, 0.4f));
     public static final RegistryObject<CheeseFood> CHEESE_RAW_COD = ITEMS.register("cheese_raw_cod", () -> new CheeseFood(2, 0.4f));

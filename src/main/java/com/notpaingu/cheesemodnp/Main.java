@@ -1,5 +1,6 @@
 package com.notpaingu.cheesemodnp;
 
+import com.notpaingu.cheesemodnp.items.BlockItemUnstackable;
 import com.notpaingu.cheesemodnp.lists.BlockList;
 import com.notpaingu.cheesemodnp.lists.ItemList;
 import com.notpaingu.cheesemodnp.lists.PotionList;
@@ -32,7 +33,7 @@ public class Main {
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        BlockList.BLOCKS.register(modEventBus);
+        BlockList.UNSTACKABLEBLOCKS.register(modEventBus);
         ItemList.ITEMS.register(modEventBus);
         PotionList.POTIONS.register(modEventBus);
 
@@ -42,12 +43,11 @@ public class Main {
     }
 
     @SubscribeEvent
-    public static void createBlockItems(final RegistryEvent.Register<Item> event) {
+    public static void createUnstackableBlockItems(final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
 
-        BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-            final Item.Properties properties = new Item.Properties().group(Main.CHEESE);
-            final BlockItem blockItem = new BlockItem(block, properties);
+        BlockList.UNSTACKABLEBLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+            final BlockItemUnstackable blockItem = new BlockItemUnstackable(block);
             blockItem.setRegistryName(block.getRegistryName());
             registry.register(blockItem);
         });

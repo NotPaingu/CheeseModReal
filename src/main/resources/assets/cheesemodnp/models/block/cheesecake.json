@@ -1,9 +1,9 @@
 {
   "textures": {
-    "particle": "block/cheesecake_side",
-    "bottom": "block/cheesecake_bottom",
-    "top": "block/cheesecake_top",
-    "side": "block/cheesecake_side"
+    "particle": "cheesemodnp:blocks/cheesecake_side",
+    "bottom": "cheesemodnp:blocks/cheesecake_bottom",
+    "top": "cheesemodnp:blocks/cheesecake_top",
+    "side": "cheesemodnp:blocks/cheesecake_side"
   },
   "elements": [
     {   "from": [ 1, 0, 1 ],
