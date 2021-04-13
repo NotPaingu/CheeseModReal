@@ -1,4 +1,4 @@
-package com.notpaingu.cheesemodnp.items;
+package com.notpaingu.cheesemodnp.blocks;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;

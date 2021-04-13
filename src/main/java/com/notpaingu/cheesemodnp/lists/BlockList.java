@@ -1,6 +1,6 @@
 package com.notpaingu.cheesemodnp.lists;
 
-import com.notpaingu.cheesemodnp.items.CheeseCake;
+import com.notpaingu.cheesemodnp.blocks.CheeseCake;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
