@@ -3,6 +3,7 @@ package com.notpaingu.cheesemodnp.blocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CakeBlock;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 
 public class CheeseCake extends CakeBlock {
     public CheeseCake() {
-        super(AbstractBlock.Properties.create(Material.CAKE).noDrops());
+        super(AbstractBlock.Properties.create(Material.CAKE).noDrops().sound(SoundType.CLOTH));
     }
 
     @Override
