@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "tutorial:blocks/microbe_ore"
+    "all": "cheesemodnp:blocks/microbe_ore"
   }
 }

@@ -24,7 +24,7 @@ public class ModOreGen {
             } else if(biome.getCategory() == Biome.Category.THEEND) {
 
             } else {
-                genOre(event.getGeneration(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockList.MICROBE_ORE.get().getDefaultState(), 5, 0, 100, 20);
+                genOre(event.getGeneration(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockList.MICROBE_ORE.get().getDefaultState(), 5, 0, 100, 15);
             }
         }
     }
