@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " m ",
+    " c ",
+    "mfm"
+  ],
+  "key":
+  {
+    "m":
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    "c":
+    {
+      "item": "cheesemodnp:cheese"
+    },
+    "f":
+    {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "result":
+  {
+    "item": "cheesemodnp:cheesepot",
+    "count": 1
+  }
+}
