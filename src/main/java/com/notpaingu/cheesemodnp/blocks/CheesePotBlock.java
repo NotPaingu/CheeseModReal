@@ -11,8 +11,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -57,6 +60,11 @@ public class CheesePotBlock extends Block {
     }
 
     @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(CHEESE_LEVEL);
+    }
+
+    @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         int i = state.get(CHEESE_LEVEL);
         ItemStack itemstack = player.getHeldItem(handIn);
@@ -72,10 +80,13 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == ItemList.CHEESE.get()) {
                 if (cheese_ref < Integer.MAX_VALUE) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                     cheese_ref++;
+                    worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                    itemstack.shrink(1);
                 }
             } else if (item == Items.BEETROOT) {
                 cheese_ref--;
@@ -97,6 +108,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.APPLE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -118,6 +130,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.BAKED_POTATO) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -139,6 +152,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.PUFFERFISH) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -160,6 +174,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.TROPICAL_FISH) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -181,6 +196,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKIE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -202,6 +218,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COD) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -223,6 +240,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.SALMON) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -244,6 +262,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.SWEET_BERRIES) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -265,6 +284,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.DRIED_KELP) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -286,6 +306,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.POTATO) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -307,6 +328,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.ROTTEN_FLESH) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -328,6 +350,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.MELON_SLICE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -349,6 +372,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.POISONOUS_POTATO) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -370,6 +394,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.CHICKEN) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -391,6 +416,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.MUTTON) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -412,6 +438,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.BEEF) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -433,6 +460,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.PORKCHOP) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -454,6 +482,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.RABBIT) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -475,6 +504,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.CHORUS_FRUIT) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -496,6 +526,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.SPIDER_EYE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -517,6 +548,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.CARROT) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -538,6 +570,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.PUMPKIN_PIE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -559,6 +592,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.BREAD) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -580,6 +614,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_COD) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -601,6 +636,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_RABBIT) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -622,6 +658,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.BEETROOT_SOUP) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -643,6 +680,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_CHICKEN) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -664,6 +702,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.MUSHROOM_STEW) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -685,6 +724,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.SUSPICIOUS_STEW) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -706,6 +746,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.ENCHANTED_GOLDEN_APPLE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -727,6 +768,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.GOLDEN_APPLE) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -748,6 +790,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_MUTTON) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -769,6 +812,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_SALMON) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -790,6 +834,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.RABBIT_STEW) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -811,6 +856,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_PORKCHOP) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -832,6 +878,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.COOKED_BEEF) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -853,6 +900,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (item == Items.GOLDEN_CARROT) {
                 cheese_ref--;
                 if (cheese_ref < 0) {
@@ -874,6 +922,7 @@ public class CheesePotBlock extends Block {
                 } else if (cheese_ref > 0) {
                     worldIn.setBlockState(pos, state.with(CHEESE_LEVEL, 1), 3);
                 }
+                worldIn.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
         }
 

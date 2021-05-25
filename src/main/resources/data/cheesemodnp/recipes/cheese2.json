@@ -11,10 +11,10 @@
     "x":
     {
       "item": "cheesemodnp:microbe"
-    }
+    },
     "*":
     {
-       "item": "minecraft:milk_bucket"
+      "item": "minecraft:milk_bucket"
     }
   },
   "result":
