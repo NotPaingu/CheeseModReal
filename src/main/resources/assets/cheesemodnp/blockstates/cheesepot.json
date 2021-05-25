@@ -1,5 +1,10 @@
 {
-    "variants": {
-        "": { "model":  "cheesemodnp:block/cheesepot"}
+  "variants": {
+    "cheese_level=0": {
+      "model": "cheesemodnp:block/cheesepot_empty"
+    },
+    "cheese_level=1": {
+      "model": "cheesemodnp:block/cheesepot"
     }
+  }
 }

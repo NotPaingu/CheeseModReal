@@ -11,7 +11,7 @@ public class MicrobeOre extends OreBlock {
         super(AbstractBlock.Properties.create(Material.ROCK)
         .hardnessAndResistance(3.0f, 4.0f)
         .sound(SoundType.STONE)
-        .harvestLevel(2)
+        .harvestLevel(0)
         .harvestTool(ToolType.PICKAXE));
     }
 

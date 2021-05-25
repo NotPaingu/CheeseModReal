@@ -51,5 +51,5 @@ public class ItemList {
     public static final RegistryObject<CheeseFood> CHEESE_STEAK = ITEMS.register("cheese_steak", () -> new CheeseFood(8, 12.8f));
     public static final RegistryObject<CheeseFood> CHEESE_GOLDEN_CARROT = ITEMS.register("cheese_golden_carrot", () -> new CheeseFood(6, 14.4f));
 
-
+    public static final RegistryObject<Item> MICROBE = ITEMS.register("microbe", ItemBase::new);
 }

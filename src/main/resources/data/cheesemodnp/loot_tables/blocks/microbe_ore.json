@@ -28,7 +28,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "minecraft:diamond",
+              "name": "cheesemodnp:microbe",
               "functions": [
                 {
                   "function": "minecraft:apply_bonus",
