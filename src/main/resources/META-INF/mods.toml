@@ -23,9 +23,9 @@ version="1.16.5-1.0.0" #mandatory
  # A display name for the mod
 displayName="C H E E S E" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="" #optional
+updateJSONURL="https://example.me" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="" #optional
+displayURL="https://example.me" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="cheese(1).png" #optional
 # A text field displayed in the mod UI

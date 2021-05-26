@@ -89,7 +89,7 @@ public class PotionList {
 
     private static void addMix(Potion start, Item ingredient, Potion result) {
         if(brewing_mixes == null) {
-            brewing_mixes = ObfuscationReflectionHelper.findMethod(PotionBrewing.class, "addMix", Potion.class, Item.class, Potion.class);
+            brewing_mixes = ObfuscationReflectionHelper.findMethod(PotionBrewing.class, "func_193357_a", Potion.class, Item.class, Potion.class);
             brewing_mixes.setAccessible(true);
         }
         try {
